@@ -1,0 +1,16 @@
+<svg width="180" height="80" viewBox="0 0 180 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left edge of A and house structure -->
+  <path d="M30 10 L30 70 L60 70 L90 50 L90 70 L120 70 L120 10 Z" fill="#1F2937" stroke="#F97316" stroke-width="2.5" stroke-linejoin="round"/>
+  
+  <!-- Right edge of A (diagonal line inside) -->
+  <line x1="60" y1="10" x2="120" y2="70" stroke="#F97316" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Horizontal bar of A -->
+  <line x1="45" y1="40" x2="95" y2="40" stroke="#F97316" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Door/window (white space in center) -->
+  <rect x="52" y="48" width="36" height="18" fill="white" stroke="#F97316" stroke-width="2"/>
+  
+  <!-- Text An Home -->
+  <text x="95" y="50" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#F97316">An Home</text>
+</svg>
