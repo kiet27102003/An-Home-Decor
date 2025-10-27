@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { createApiUrl } from '../config/api';
+import { getConstructionServices } from '../data/db';
 
 const Construction = () => {
   const [services, setServices] = useState([]);
@@ -11,8 +10,8 @@ const Construction = () => {
 
   const fetchServices = async () => {
     try {
-      const response = await axios.get(createApiUrl('api/construction-services'));
-      setServices(response.data);
+      const data = await getConstructionServices();
+      setServices(data);
     } catch (error) {
       console.error('Error fetching services:', error);
     }

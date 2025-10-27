@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { createApiUrl } from '../config/api';
+import { getWines, createOrder } from '../data/db';
 
 const WineShop = () => {
   const [wines, setWines] = useState([]);
@@ -13,8 +12,8 @@ const WineShop = () => {
 
   const fetchWines = async () => {
     try {
-      const response = await axios.get(createApiUrl('api/wines'));
-      setWines(response.data);
+      const data = await getWines();
+      setWines(data);
     } catch (error) {
       console.error('Error fetching wines:', error);
     }
@@ -35,14 +34,13 @@ const WineShop = () => {
     }
     
     try {
-      await axios.post(createApiUrl('api/orders'), {
+      await createOrder({
         wineId: wine.id,
         wineName: wine.name,
         customerName: name,
         phone,
         quantity: 1
       });
-      alert('Đặt hàng thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
     } catch (error) {
       console.error('Error creating order:', error);
       alert('Có lỗi xảy ra. Vui lòng thử lại.');

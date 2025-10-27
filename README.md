@@ -12,79 +12,68 @@ Website đa năng về dịch vụ xây dựng, thiết kế nội thất và b�
 ## 🛠️ Công Nghệ
 
 - **Frontend**: React + Vite + Tailwind CSS
-- **Backend**: Node.js + Express
-- **Database**: JSON (file-based)
+- **Data**: Mock data (không cần backend)
+- **Deployment**: Vercel (miễn phí)
 
 ## 📦 Cài Đặt
 
-### 1. Cài đặt tất cả dependencies
+### 1. Cài đặt dependencies
 
 ```bash
+cd frontend
 npm install
-cd backend && npm install
-cd ../frontend && npm install
 ```
 
-Hoặc có thể chạy từng lệnh riêng lẻ.
-
-### 2. Chạy project
+### 2. Chạy development server
 
 ```bash
 npm run dev
 ```
 
-Điều này sẽ chạy cả frontend và backend:
-- Frontend: http://localhost:3000
-- Backend: http://localhost:3001
+Website sẽ chạy tại: http://localhost:3000
 
-### Hoặc chạy riêng lẻ:
+### 3. Deploy Production
 
-Chạy backend:
+Xem file `DEPLOY_SIMPLE.md` để biết chi tiết.
+
 ```bash
-npm run server
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+cd frontend
+vercel --prod
 ```
 
-Chạy frontend:
-```bash
-npm run client
-```
+Hoặc có thể chạy từng lệnh riêng lẻ.
 
 ## 📁 Cấu Trúc Project
 
 ```
 an-home-decor/
-├── frontend/          # React frontend application
+├── frontend/              # React frontend application
 │   ├── src/
-│   │   ├── components/    # React components
+│   │   ├── data/         # Mock data (db.js)
+│   │   ├── components/   # React components
 │   │   ├── pages/        # Page components
 │   │   ├── App.jsx       # Main app component
 │   │   └── main.jsx      # Entry point
 │   ├── index.html
-│   └── package.json
-├── backend/           # Node.js backend
-│   ├── data/         # Database storage
-│   ├── server.js      # Express server
-│   └── package.json
-└── package.json       # Root package.json
+│   ├── package.json
+│   └── vercel.json       # Vercel config
+├── backend/              # Backend cũ (không cần dùng nữa)
+└── DEPLOY_SIMPLE.md      # Hướng dẫn deploy
 ```
 
-## 🌐 API Endpoints
+## 📊 Data
 
-### Construction Services
-- `GET /api/construction-services` - Lấy danh sách dịch vụ
-- `POST /api/construction-services` - Thêm dịch vụ mới
+Data được lưu trong `frontend/src/data/db.js`:
 
-### Interior Design Projects
-- `GET /api/interior-design-projects` - Lấy danh sách dự án
-- `POST /api/interior-design-projects` - Thêm dự án mới
+- **6 loại rượu vang** - Bao gồm Château Margaux, Dom Pérignon, Barolo...
+- **4 dịch vụ thi công** - Biệt thự, chung cư, nội thất, sửa chữa
+- **6 dự án thiết kế** - Nhiều phong cách: hiện đại, cổ điển, Scandinavian
 
-### Wines
-- `GET /api/wines` - Lấy danh sách rượu vang
-- `POST /api/wines` - Thêm rượu vang mới
-
-### Orders
-- `GET /api/orders` - Lấy danh sách đơn hàng
-- `POST /api/orders` - Tạo đơn hàng mới
+Thêm data mới bằng cách sửa file `db.js`
 
 ## 🎨 Giao Diện
 
@@ -97,8 +86,10 @@ Website có các trang sau:
 
 ## 📝 Ghi Chú
 
-- Database được lưu trong file `backend/data/database.json`
-- Mã code được viết bằng tiếng Việt để dễ hiểu
+- Tất cả data trong `frontend/src/data/db.js` (mock data)
+- Không cần backend hoặc database
+- Deploy miễn phí trên Vercel
+- Mã code được viết bằng tiếng Việt
 - Giao diện sử dụng Tailwind CSS với màu sắc phù hợp
 
 ## 👨‍💻 Tác Giả

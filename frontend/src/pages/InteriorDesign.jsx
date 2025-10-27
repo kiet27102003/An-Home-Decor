@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { createApiUrl } from '../config/api';
+import { getInteriorProjects } from '../data/db';
 
 const InteriorDesign = () => {
   const [projects, setProjects] = useState([]);
@@ -12,8 +11,8 @@ const InteriorDesign = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(createApiUrl('api/interior-design-projects'));
-      setProjects(response.data);
+      const data = await getInteriorProjects();
+      setProjects(data);
     } catch (error) {
       console.error('Error fetching projects:', error);
     }
